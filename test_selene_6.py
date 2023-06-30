@@ -1,6 +1,6 @@
 import os
 
-from selene import browser, have, be
+from selene import browser, have, be, command
 from selenium.webdriver.common.by import By
 #from qa_guru_6_5.conditions import match
 
@@ -28,13 +28,15 @@ def test_registration_form():
     browser.element('#uploadPicture').send_keys(os.path.abspath("file/кубик-рубика.jpg"))
     #Заполняем адрес
     browser.element('#currentAddress').type('test123')
+    browser.execute_script("return document.body.scrollHeight > window.innerHeight")
 
-
+    browser.element('#state').perform(command.js.scroll_into_view)
     browser.element('#state').click()
     browser.all("#state div").element_by(have.exact_text("NCR")).click()
     browser.element('#city').click()
     browser.all("#city div").element_by(have.exact_text("Delhi")).click()
-    browser.element('#submit').click()
+    browser.element('#submit').perform(command.js.click)
+
 
     #Форма с заполненными полями
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
