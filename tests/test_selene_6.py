@@ -5,8 +5,8 @@ from selenium.webdriver.common.by import By
 #from qa_guru_6_5.conditions import match
 
 def test_registration_form():
-    browser.open('https://demoqa.com/automation-practice-form/')
-    #Заполняем ФИ, email,пол,номерg
+    browser.open('/automation-practice-form')
+    #Заполняем ФИ, email,пол,номер
     browser.should(have.title('DEMOQA'))
     browser.element('#firstName').type('Dasha')
     browser.element('#lastName').type('Kirillova')
