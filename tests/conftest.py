@@ -10,6 +10,5 @@ def browser_management():
     driver_options = webdriver.ChromeOptions()
     driver_options.add_argument('--headless')
     browser.config.driver_options = driver_options
-    browser.config.timeout = 6
     yield
     browser.quit()
