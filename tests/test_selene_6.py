@@ -2,7 +2,7 @@ import os
 
 from selene import browser, have, be, command
 from selenium.webdriver.common.by import By
-#from qa_guru_6_5.conditions import match
+
 
 def test_registration_form():
     browser.open('/automation-practice-form')
@@ -25,7 +25,7 @@ def test_registration_form():
     browser.all("#subjectsWrapper div").element_by(have.exact_text("Economics")).click()
     browser.all('#hobbiesWrapper label').element_by(have.exact_text('Music')).click()
     #Загружаем изображение
-    browser.element('#uploadPicture').send_keys(os.path.abspath("file/кубик-рубика.jpg"))
+    browser.element('#uploadPicture').send_keys(os.path.abspath("../file/кубик-рубика.jpg"))
     #Заполняем адрес
     browser.element('#currentAddress').type('test123')
     browser.execute_script("return document.body.scrollHeight > window.innerHeight")
