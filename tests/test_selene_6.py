@@ -25,7 +25,7 @@ def test_registration_form():
     browser.all("#subjectsWrapper div").element_by(have.exact_text("Economics")).click()
     browser.all('#hobbiesWrapper label').element_by(have.exact_text('Music')).click()
     #Загружаем изображение
-    browser.element('#uploadPicture').send_keys(os.path.abspath("../file/кубик-рубика.jpg"))
+    browser.element('#uploadPicture').send_keys(os.path.abspath("file/cube.jpg"))
     #Заполняем адрес
     browser.element('#currentAddress').type('test123')
     browser.execute_script("return document.body.scrollHeight > window.innerHeight")
@@ -54,7 +54,7 @@ def test_registration_form():
 
     browser.element('.modal-body').should(have.text('Music'))
 
-    browser.element('.modal-body').should(have.text('кубик-рубика.jpg'))
+    browser.element('.modal-body').should(have.text('cube.jpg'))
     browser.element('.modal-body').should(have.text('test123'))
     browser.element('.modal-body').should(have.text('NCR Delhi'))
 
